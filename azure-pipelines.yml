@@ -5,10 +5,11 @@ pool:
   name: Default
 
 variables:
-  buildConfiguration: Release
-  imageRepository: authapi
-  dockerfilePath: AuthApi/Dockerfile
-  tag: $(Build.BuildId)
+  buildConfiguration: 'Release'
+  imageRepository: 'authapi'
+  containerRegistry: 'ACR-Connection'
+  dockerfilePath: 'AuthApi/Dockerfile'
+  tag: '$(Build.BuildId)'
 
 steps:
 
@@ -24,11 +25,12 @@ steps:
   displayName: 'Restore and Build'
 
 - task: Docker@2
-  displayName: 'Build Docker Image'
+  displayName: 'Build and Push Docker Image'
   inputs:
-    command: build
-    repository: $(imageRepository)
-    dockerfile: $(dockerfilePath)
+    command: 'buildAndPush'
+    containerRegistry: '$(containerRegistry)'
+    repository: '$(imageRepository)'
+    dockerfile: '$(dockerfilePath)'
     tags: |
       $(tag)
       latest

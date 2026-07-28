@@ -1,4 +1,21 @@
 <Solution>
+  <Folder Name="/infra/" />
+  <Folder Name="/infra/bicep/">
+    <File Path="acr.bicep" />
+    <File Path="aks.bicep" />
+    <File Path="loganalytics.bicep" />
+    <File Path="main.bicep" />
+    <File Path="network.bicep" />
+  </Folder>
+  <Folder Name="/infra/parameters/">
+    <File Path="lab.bicepparam" />
+  </Folder>
+  <Folder Name="/infra/scripts/">
+    <File Path="Connect-AKS.ps1" />
+    <File Path="Create-Lab.ps1" />
+    <File Path="Delete-Lab.ps1" />
+  </Folder>
+  <Folder Name="/k8s/" />
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
     <File Path="azure-pipelines-auth.yml" />

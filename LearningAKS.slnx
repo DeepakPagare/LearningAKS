@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="azure-pipelines-auth.yml" />
+    <File Path="azure-pipelines-order.yml" />
+    <File Path="azure-pipelines-payment.yml" />
+  </Folder>
   <Project Path="AuthApi/AuthApi.csproj" />
   <Project Path="OrderApi/OrderApi.csproj" />
   <Project Path="PaymentApi/PaymentApi.csproj" />

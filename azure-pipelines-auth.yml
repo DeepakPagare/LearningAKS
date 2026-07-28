@@ -1,5 +1,11 @@
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - AuthApi/**
+      - azure-pipelines-auth.yml
 
 pool:
   name: Default

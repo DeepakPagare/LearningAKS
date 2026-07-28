@@ -1,14 +1,20 @@
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - OrderApi/**
+      - azure-pipelines-order.yml
 
 pool:
   name: Default
 
 variables:
   buildConfiguration: 'Release'
-  imageRepository: 'authapi'
+  imageRepository: 'orderapi'
   containerRegistry: 'ACR-Connection'
-  dockerfilePath: 'AuthApi/Dockerfile'
+  dockerfilePath: 'OrderApi/Dockerfile'
   tag: '$(Build.BuildId)'
 
 steps:
@@ -20,8 +26,8 @@ steps:
     version: '10.0.x'
 
 - script: |
-    dotnet restore AuthApi/AuthApi.csproj
-    dotnet build AuthApi/AuthApi.csproj --configuration $(buildConfiguration) --no-restore
+    dotnet restore OrderApi/OrderApi.csproj
+    dotnet build OrderApi/OrderApi.csproj --configuration $(buildConfiguration) --no-restore
   displayName: 'Restore and Build'
 
 - task: Docker@2

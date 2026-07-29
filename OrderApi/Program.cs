@@ -35,6 +35,7 @@ app.MapGet("/orders", async (IHttpClientFactory httpClientFactory, IConfiguratio
 
     // Read from Kubernetes ConfigMap
     var baseUrl = configuration["PAYMENT_API_URL"] ?? configuration["PaymentApi:BaseUrl"];
+    Console.WriteLine("this is base url" + baseUrl +".........");
     var payment = await client.GetFromJsonAsync<object>($"{baseUrl}/payments");
 
 

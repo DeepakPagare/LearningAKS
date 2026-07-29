@@ -1,10 +1,12 @@
-using '../main.bicep'
+using './main.bicep'
 
-param location = 'Central India'
+param location = 'centralindia'
 
 param aksName = 'aks-enterprise'
 
 param workspaceName = 'law-aks-enterprise'
+
+param vnetResourceGroup = 'AdminAppSrc'
 
 param vnetName = 'vnet-enterprise'
 

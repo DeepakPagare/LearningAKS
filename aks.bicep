@@ -33,7 +33,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
         name: 'system'
         mode: 'System'
         count: 1
-        vmSize: 'Standard_B2s'
+        vmSize: 'Standard_D2s_v3'   
         osType: 'Linux'
         osSKU: 'Ubuntu'
         type: 'VirtualMachineScaleSets'
@@ -42,9 +42,12 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
     ]
 
     networkProfile: {
-      networkPlugin: 'azure'
-      loadBalancerSku: 'standard'
-    }
+  networkPlugin: 'azure'
+  loadBalancerSku: 'standard'
+
+  serviceCidr: '172.20.0.0/16'
+  dnsServiceIP: '172.20.0.10'
+}
 
     addonProfiles: {
       omsagent: {

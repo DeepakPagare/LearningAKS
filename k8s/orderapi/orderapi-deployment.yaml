@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: orderapi
+  namespace: microservices
+  labels:
+    app: orderapi
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: orderapi
+
+  template:
+    metadata:
+      labels:
+        app: orderapi
+
+    spec:
+      containers:
+      - name: orderapi
+        image: deepakaksacr.azurecr.io/orderapi:latest
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8080
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+
+          limits:
+            cpu: "500m"
+            memory: "512Mi"

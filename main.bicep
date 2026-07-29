@@ -9,6 +9,9 @@ param aksName string
 @description('Log Analytics Workspace Name')
 param workspaceName string
 
+@description('Existing Virtual Network Resource Group')
+param vnetResourceGroup string
+
 @description('Existing Virtual Network Name')
 param vnetName string
 
@@ -19,12 +22,13 @@ param subnetName string
 // Existing Virtual Network
 // ============================================
 
-resource vnet 'Microsoft.Network/virtualNetworks@2024-01-01' existing = {
+resource existingVnet 'Microsoft.Network/virtualNetworks@2024-01-01' existing = {
+  scope: resourceGroup(vnetResourceGroup)
   name: vnetName
 }
 
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-01-01' existing = {
-  parent: vnet
+resource existingSubnet 'Microsoft.Network/virtualNetworks/subnets@2024-01-01' existing = {
+  parent: existingVnet
   name: subnetName
 }
 
@@ -51,13 +55,9 @@ module aks 'aks.bicep' = {
   params: {
     location: location
     aksName: aksName
-    subnetId: subnet.id
+    subnetId: existingSubnet.id
     logAnalyticsWorkspaceId: logAnalytics.outputs.workspaceId
   }
-
-  dependsOn: [
-    logAnalytics
-  ]
 }
 
 output aksClusterName string = aks.outputs.aksName

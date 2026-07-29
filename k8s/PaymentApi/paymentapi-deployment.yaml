@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: paymentapi
+  namespace: microservices
+  labels:
+    app: paymentapi
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: paymentapi
+
+  template:
+    metadata:
+      labels:
+        app: paymentapi
+
+    spec:
+      containers:
+      - name: paymentapi
+        image: deepakaksacr.azurecr.io/paymentapi:latest
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8080
+
+        # ---------- ADDED START ----------
+        env:
+        - name: AUTH_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: AUTH_API_URL
+
+        - name: PAYMENT_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: PAYMENT_API_URL
+
+        - name: ORDER_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: ORDER_API_URL
+        # ---------- ADDED END ----------
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+
+          limits:
+            cpu: "500m"
+            memory: "512Mi"

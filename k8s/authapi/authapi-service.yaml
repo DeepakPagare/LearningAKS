@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: authapi
+  namespace: microservices
+
+spec:
+  type: ClusterIP
+
+  selector:
+    app: authapi
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

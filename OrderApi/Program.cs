@@ -32,9 +32,11 @@ app.MapGet("/health", () =>
 app.MapGet("/orders", async (IHttpClientFactory httpClientFactory, IConfiguration configuration) =>
 {
     var client = httpClientFactory.CreateClient();
-    var baseUrl = configuration["PaymentApi:BaseUrl"];
 
+    // Read from Kubernetes ConfigMap
+    var baseUrl = configuration["PAYMENT_API_URL"] ?? configuration["PaymentApi:BaseUrl"];
     var payment = await client.GetFromJsonAsync<object>($"{baseUrl}/payments");
+
 
 
     // We'll replace this URL with the Kubernetes service name later.

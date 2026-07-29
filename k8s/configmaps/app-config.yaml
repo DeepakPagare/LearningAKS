@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: app-config
+  namespace: microservices
+
+data:
+  AUTH_API_URL: "http://authapi"
+  PAYMENT_API_URL: "http://paymentapi"
+  ORDER_API_URL: "http://orderapi"

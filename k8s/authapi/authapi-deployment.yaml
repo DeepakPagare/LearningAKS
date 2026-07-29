@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: authapi
+  namespace: microservices
+  labels:
+    app: authapi
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: authapi
+
+  template:
+    metadata:
+      labels:
+        app: authapi
+
+    spec:
+      containers:
+        - name: authapi
+          image: deepakaksacr.azurecr.io/authapi:latest
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 8080
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

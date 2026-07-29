@@ -29,13 +29,15 @@
     <File Path="k8s/configmaps/app-config.yaml" />
   </Folder>
   <Folder Name="/k8s/orderapi/">
-    <File Path="k8s/configmaps/app-config.yaml" />
     <File Path="k8s/orderapi/orderapi-deployment.yaml" />
     <File Path="k8s/orderapi/orderapi-service.yaml" />
   </Folder>
   <Folder Name="/k8s/paymentapi/">
     <File Path="k8s/PaymentApi/paymentapi-deployment.yaml" />
     <File Path="k8s/PaymentApi/paymentapi-service.yaml" />
+  </Folder>
+  <Folder Name="/k8s/secrets/">
+    <File Path="k8s/secrets/app-secret.yaml" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />

@@ -28,6 +28,18 @@ spec:
         ports:
         - containerPort: 8080
 
+        env:
+        - name: PAYMENT_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: PAYMENT_API_URL
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+               name: app-secret
+               key: DB_PASSWORD
+
         resources:
           requests:
             cpu: "100m"

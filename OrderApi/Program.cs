@@ -39,6 +39,10 @@ app.MapGet("/orders", async (IHttpClientFactory httpClientFactory, IConfiguratio
     var payment = await client.GetFromJsonAsync<object>($"{baseUrl}/payments");
 
 
+    var dbPassword = configuration["DB_PASSWORD"] ?? configuration["OrderApiDB:DBPass"];
+    Console.WriteLine("this is DBPASSWORD url" + dbPassword + ".........");
+
+
 
     // We'll replace this URL with the Kubernetes service name later.
     //var payment = await client.GetFromJsonAsync<object>("http://localhost:5260/payments");

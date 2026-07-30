@@ -41,6 +41,12 @@ spec:
                name: app-secret
                key: DB_PASSWORD
 
+        - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+        valueFrom:
+            secretKeyRef:
+                name: appinsights-secret
+                key: APPLICATIONINSIGHTS_CONNECTION_STRING
+
         resources:
           requests:
             cpu: "100m"

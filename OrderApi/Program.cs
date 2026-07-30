@@ -40,7 +40,7 @@ app.MapGet("/orders", async (IHttpClientFactory httpClientFactory, IConfiguratio
 
 
     var dbPassword = configuration["DB_PASSWORD"] ?? configuration["OrderApiDB:DBPass"];
-    Console.WriteLine("this is DBPASSWORD url" + dbPassword + ".........");
+    Console.WriteLine("this is DBPASSWORD.." + dbPassword + ".........");
 
 
 

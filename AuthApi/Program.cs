@@ -35,7 +35,7 @@ app.MapPost("/login", ([FromBody] LoginRequest request) =>
     {
         return Results.Ok(new
         {
-            Token = "Dummy-JWT-Token-Test",
+            Token = "Dummy-JWT-Token",
             ExpiresIn = "1 Hour"
         });
     }

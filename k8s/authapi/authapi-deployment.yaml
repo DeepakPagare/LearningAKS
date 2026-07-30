@@ -28,6 +28,13 @@ spec:
           ports:
             - containerPort: 8080
 
+          env:
+            - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: appinsights-secret
+                  key: APPLICATIONINSIGHTS_CONNECTION_STRING
+
           resources:
             requests:
               cpu: "100m"

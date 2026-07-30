@@ -3,11 +3,13 @@
   <Folder Name="/infra/bicep/">
     <File Path="infra/bicep/acr.bicep" />
     <File Path="infra/bicep/aks.bicep" />
+    <File Path="infra/bicep/appinsights.bicep" />
     <File Path="infra/bicep/loganalytics.bicep" />
     <File Path="infra/bicep/main.bicep" />
     <File Path="infra/bicep/network.bicep" />
   </Folder>
   <Folder Name="/infra/parameters/">
+    <File Path="infra/parameters/appinsights.bicepparam" />
     <File Path="infra/parameters/lab.bicepparam" />
   </Folder>
   <Folder Name="/infra/scripts/">
@@ -45,6 +47,7 @@
   </Folder>
   <Folder Name="/scripts/">
     <File Path="scripts/deploy-aks.ps1" />
+    <File Path="scripts/deploy-appinsights.ps1" />
     <File Path="scripts/deploy-k8s.ps1" />
     <File Path="scripts/destroy-aks.ps1" />
     <File Path="scripts/destroy-environment.ps1" />

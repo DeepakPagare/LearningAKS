@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Azure.Monitor.OpenTelemetry.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

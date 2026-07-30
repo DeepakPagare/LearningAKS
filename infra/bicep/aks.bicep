@@ -7,7 +7,7 @@ param location string
 @description('Existing AKS Subnet Resource ID')
 param subnetId string
 
-@description('Log Analytics Workspace Resource ID')
+@description('Existing Log Analytics Workspace Resource ID')
 param logAnalyticsWorkspaceId string
 
 resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
@@ -25,15 +25,14 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
 
   properties: {
     dnsPrefix: aksName
-
-    kubernetesVersion: ''
+    enableRBAC: true
 
     agentPoolProfiles: [
       {
         name: 'system'
         mode: 'System'
         count: 1
-        vmSize: 'Standard_D2s_v3'   
+        vmSize: 'Standard_D2s_v3'
         osType: 'Linux'
         osSKU: 'Ubuntu'
         type: 'VirtualMachineScaleSets'
@@ -42,12 +41,12 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
     ]
 
     networkProfile: {
-  networkPlugin: 'azure'
-  loadBalancerSku: 'standard'
+      networkPlugin: 'azure'
+      loadBalancerSku: 'standard'
 
-  serviceCidr: '172.20.0.0/16'
-  dnsServiceIP: '172.20.0.10'
-}
+      serviceCidr: '172.20.0.0/16'
+      dnsServiceIP: '172.20.0.10'
+    }
 
     addonProfiles: {
       omsagent: {

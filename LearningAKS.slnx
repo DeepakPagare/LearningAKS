@@ -1,25 +1,23 @@
 <Solution>
   <Folder Name="/infra/" />
   <Folder Name="/infra/bicep/">
-    <File Path="acr.bicep" />
-    <File Path="aks.bicep" />
-    <File Path="loganalytics.bicep" />
-    <File Path="main.bicep" />
-    <File Path="network.bicep" />
+    <File Path="infra/bicep/acr.bicep" />
+    <File Path="infra/bicep/aks.bicep" />
+    <File Path="infra/bicep/loganalytics.bicep" />
+    <File Path="infra/bicep/main.bicep" />
+    <File Path="infra/bicep/network.bicep" />
   </Folder>
   <Folder Name="/infra/parameters/">
-    <File Path="lab.bicepparam" />
+    <File Path="infra/parameters/lab.bicepparam" />
   </Folder>
   <Folder Name="/infra/scripts/">
-    <File Path="Connect-AKS.ps1" />
-    <File Path="Create-Lab.ps1" />
-    <File Path="Delete-Lab.ps1" />
+    <File Path="infra/scripts/Connect-AKS.ps1" />
+    <File Path="infra/scripts/Create-Lab.ps1" />
+    <File Path="infra/scripts/Delete-Lab.ps1" />
   </Folder>
   <Folder Name="/k8s/">
-    <File Path="hpa.yaml" />
-    <File Path="ingress.yaml" />
     <File Path="k8s/configmaps/app-config.yaml" />
-    <File Path="namespace.yaml" />
+    <File Path="k8s/namespace.yaml" />
   </Folder>
   <Folder Name="/k8s/authapi/">
     <File Path="k8s/authapi/authapi-deployment.yaml" />
@@ -27,6 +25,12 @@
   </Folder>
   <Folder Name="/k8s/configmaps/">
     <File Path="k8s/configmaps/app-config.yaml" />
+  </Folder>
+  <Folder Name="/k8s/hpa/">
+    <File Path="k8s/hpa/orderapi-hpa.yaml" />
+  </Folder>
+  <Folder Name="/k8s/ingress/">
+    <File Path="k8s/ingress/ingress.yaml" />
   </Folder>
   <Folder Name="/k8s/orderapi/">
     <File Path="k8s/orderapi/orderapi-deployment.yaml" />
@@ -38,6 +42,12 @@
   </Folder>
   <Folder Name="/k8s/secrets/">
     <File Path="k8s/secrets/app-secret.yaml" />
+  </Folder>
+  <Folder Name="/scripts/">
+    <File Path="scripts/deploy-aks.ps1" />
+    <File Path="scripts/deploy-k8s.ps1" />
+    <File Path="scripts/destroy-aks.ps1" />
+    <File Path="scripts/destroy-environment.ps1" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />

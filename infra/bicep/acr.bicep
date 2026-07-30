@@ -1,8 +1,8 @@
-@description('Azure Container Registry Name')
-param acrName string
-
 @description('Azure Location')
 param location string
+
+@description('ACR Name')
+param acrName string
 
 resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
   name: acrName
@@ -10,6 +10,7 @@ resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
   sku: {
     name: 'Basic'
   }
+
   properties: {
     adminUserEnabled: false
   }
@@ -17,4 +18,3 @@ resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
 
 output acrId string = acr.id
 output acrName string = acr.name
-output loginServer string = acr.properties.loginServer

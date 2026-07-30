@@ -34,6 +34,7 @@ spec:
             configMapKeyRef:
               name: app-config
               key: PAYMENT_API_URL
+
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:

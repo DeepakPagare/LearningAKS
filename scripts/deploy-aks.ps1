@@ -94,6 +94,23 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Azure Container Registry attached." -ForegroundColor Green
 
 # ============================================
+# Deploy Application Insights
+# ============================================
+
+Write-Host ""
+Write-Host "Deploying Application Insights..." -ForegroundColor Yellow
+
+& "$PSScriptRoot\deploy-appinsights.ps1"
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Host ""
+    Write-Host "Application Insights deployment failed." -ForegroundColor Red
+    exit 1
+}
+
+Write-Host "Application Insights deployed successfully." -ForegroundColor Green
+
+# ============================================
 # Deploy Kubernetes Resources
 # ============================================
 

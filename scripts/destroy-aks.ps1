@@ -25,12 +25,13 @@ if (-not $clusterExists) {
     exit 0
 }
 
-# Delete AKS
+Write-Host ""
+Write-Host "Deleting AKS cluster..." -ForegroundColor Yellow
+
 az aks delete `
     --resource-group $resourceGroup `
     --name $aksName `
-    --yes `
-    --no-wait false
+    --yes
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host ""

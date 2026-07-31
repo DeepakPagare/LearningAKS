@@ -1,10 +1,12 @@
 using Azure.Monitor.OpenTelemetry.AspNetCore;
+using OpenTelemetry.Resources;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddOpenTelemetry()
-    .UseAzureMonitor();
+                .ConfigureResource(resource => resource.AddService("PaymentApi"))
+                .UseAzureMonitor();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

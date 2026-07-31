@@ -18,7 +18,7 @@ app.MapGet("/", () =>
 {
     return Results.Ok(new
     {
-        Service = "Payment API-1",
+        Service = "Payment API-2",
         Status = "Running",
         Version = "2.0"
     });

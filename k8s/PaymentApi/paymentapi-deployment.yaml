@@ -28,7 +28,6 @@ spec:
         ports:
         - containerPort: 8080
 
-        # ---------- ADDED START ----------
         env:
         - name: AUTH_API_URL
           valueFrom:
@@ -49,11 +48,10 @@ spec:
               key: ORDER_API_URL
 
         - name: APPLICATIONINSIGHTS_CONNECTION_STRING
-        valueFrom:
+          valueFrom:
             secretKeyRef:
-                name: appinsights-secret
-                key: APPLICATIONINSIGHTS_CONNECTION_STRING
-        # ---------- ADDED END ----------
+              name: appinsights-secret
+              key: APPLICATIONINSIGHTS_CONNECTION_STRING
 
         resources:
           requests:

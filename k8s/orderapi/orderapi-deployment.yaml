@@ -38,14 +38,14 @@ spec:
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-               name: app-secret
-               key: DB_PASSWORD
+              name: app-secret
+              key: DB_PASSWORD
 
         - name: APPLICATIONINSIGHTS_CONNECTION_STRING
-        valueFrom:
+          valueFrom:
             secretKeyRef:
-                name: appinsights-secret
-                key: APPLICATIONINSIGHTS_CONNECTION_STRING
+              name: appinsights-secret
+              key: APPLICATIONINSIGHTS_CONNECTION_STRING
 
         resources:
           requests:

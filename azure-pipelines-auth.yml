@@ -40,3 +40,17 @@ steps:
     tags: |
       $(tag)
       latest
+- task: KubernetesManifest@1
+  displayName: 'Deploy Auth API to AKS'
+  inputs:
+    action: 'deploy'
+    connectionType: 'azureResourceManager'
+    azureSubscriptionConnection: 'AKSConnection'
+    azureResourceGroup: 'rg-aks-enterprise'
+    kubernetesCluster: 'aks-enterprise'
+    namespace: 'microservices'
+    manifests: |
+      k8s/authapi/authapi-deployment.yaml
+      k8s/authapi/authapi-service.yaml
+    containers: |
+      deepakaksacr.azurecr.io/authapi:$(tag)

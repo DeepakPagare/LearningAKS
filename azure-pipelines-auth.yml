@@ -13,7 +13,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   imageRepository: 'authapi'
-  containerRegistry: 'ACR-Connection'
+  containerRegistry: 'ACRConnection'
   dockerfilePath: 'AuthApi/Dockerfile'
   tag: '$(Build.BuildId)'
 

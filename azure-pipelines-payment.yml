@@ -13,7 +13,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   imageRepository: 'paymentapi'
-  containerRegistry: 'ACR-Connection'
+  containerRegistry: 'ACRConnection'
   dockerfilePath: 'PaymentApi/Dockerfile'
   tag: '$(Build.BuildId)'
 
